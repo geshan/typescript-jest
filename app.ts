@@ -1,10 +1,12 @@
 import express, { Request, Response } from 'express';
-import * as bodyParser from "body-parser";
+import * as bodyParser from 'body-parser';
+import { QuotesController } from './src/controllers/QuotesController';
+import { Container, Service } from 'typedi';
 
 class App {
  public express: express.Application;
 
- public constructor() {
+ public constructor(public quotesController: QuotesController) {
     this.express = express();
     this.middleware();
     this.routes();    
@@ -19,7 +21,11 @@ class App {
     this.express.get('/', (req: Request, res: Response) => {
       res.send({ message: 'Express server built using TypeScript' });
     });
+
+    this.express.get('/api/quotes', (req: Request, res: Response) => {
+      res.send({ data: this.quotesController.getQuotes() });
+    });
   }
 }
 
-export default new App().express;
+export default new App(Container.get(QuotesController)).express;
