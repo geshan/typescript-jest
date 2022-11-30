@@ -13,8 +13,13 @@ describe('QuotesService', () => {
 
   describe('getQuotes', () => {
     it('should get mock fixed quotes', () => {
-      const quotes = service.getQuotes();
-      expect(quotes).toHaveLength(2);
+      const quotes = service.getQuotes(1);
+      expect(quotes).toHaveLength(10);
+    });
+
+    it('should get mock fixed quotes for page > 1', () => {
+      const quotes = service.getQuotes(2);
+      expect(quotes).toHaveLength(7);
     });
   });
 });

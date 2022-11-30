@@ -10,7 +10,7 @@ export class QuotesController {
     this.quotesService = quotesService;
   }
   
-  public getQuotes(): Quote[] {
-    return this.quotesService.getQuotes();
+  public getQuotes(page: number = 1): Quote[] {
+    return this.quotesService.getQuotes(page);
   }
 }
