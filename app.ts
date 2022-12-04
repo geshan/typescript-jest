@@ -23,7 +23,7 @@ class App {
     });
 
     this.express.get('/api/quotes', (req: Request, res: Response) => {
-      res.send({ data: this.quotesController.getQuotes(Number(req.query.page)) });
+      res.send({ data: this.quotesController.getQuotes(Number(req.query.page) || 1) });
     });
   }
 }
