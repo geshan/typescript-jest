@@ -5,6 +5,11 @@ import { Quote } from '../types/Quote';
 export class QuotesService {
 
   public getQuotes(page: number): Quote[] {
+
+    if (page < 1) {
+      throw new Error('page number should be 1 or more');
+    }
+
     const quotes:Quote[] =  [
       {
         id: 1,

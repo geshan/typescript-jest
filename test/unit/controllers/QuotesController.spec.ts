@@ -1,5 +1,6 @@
 import { QuotesController } from "../../../src/controllers/QuotesController";
 import { QuotesService } from '../../../src/services/QuotesService';
+import { Quote } from "../../../src/types/Quote";
 
 describe('QuotesController', () => {
   let controller: QuotesController;
@@ -29,9 +30,9 @@ describe('QuotesController', () => {
           quote: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
           author: 'Martin Fowler'
         },
-      ]);
+      ] as Quote[]);
 
-      const quotes = controller.getQuotes();
+      const quotes:Quote[] = controller.getQuotes();
       expect(quotes).toHaveLength(2);
       expect(quotes[0].author).toBe('Bjarne Stroustrup')
       expect(quotes[1].quote).toEqual(expect.stringContaining('Any fool can write code that'));
@@ -46,7 +47,6 @@ describe('QuotesController', () => {
 
       expect(mockQuotesService.getQuotes).toHaveBeenCalledTimes(1);
       expect(mockQuotesService.getQuotes).toHaveBeenCalledWith(1);
-
     });
   });
 });
