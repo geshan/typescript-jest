@@ -1,20 +1,13 @@
 import express, { Request, Response } from 'express';
-import * as bodyParser from 'body-parser';
 import { QuotesController } from './src/controllers/QuotesController';
-import { Container, Service } from 'typedi';
+import { Container } from 'typedi';
 
 class App {
  public express: express.Application;
 
  public constructor(public quotesController: QuotesController) {
     this.express = express();
-    this.middleware();
     this.routes();    
-  }
-
-  private middleware(): void {
-    this.express.use(bodyParser.json());
-    this.express.use(bodyParser.urlencoded({ extended: false }));
   }
 
   private routes(): void {   	
