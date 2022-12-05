@@ -2,7 +2,7 @@ import { QuotesService } from "../../../src/services/QuotesService";
 
 describe('QuotesService', () => {
   let service: QuotesService;
-  beforeEach(async () => {
+  beforeEach(() => {
     service = new QuotesService();
     jest.clearAllMocks();
   });

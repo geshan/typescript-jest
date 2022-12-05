@@ -8,7 +8,7 @@ describe('QuotesController', () => {
   const mockQuotesService = {
     getQuotes: jest.fn()
   } as QuotesService;
-  beforeEach(async () => {
+  beforeEach(() => {
     controller = new QuotesController(mockQuotesService);
     jest.clearAllMocks();
   });
