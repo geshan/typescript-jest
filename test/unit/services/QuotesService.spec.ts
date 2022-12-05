@@ -4,7 +4,6 @@ describe('QuotesService', () => {
   let service: QuotesService;
   beforeEach(() => {
     service = new QuotesService();
-    jest.clearAllMocks();
   });
 
   it('should define quotes service', () => {

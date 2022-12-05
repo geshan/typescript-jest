@@ -10,11 +10,10 @@ describe('QuotesController', () => {
   } as QuotesService;
   beforeEach(() => {
     controller = new QuotesController(mockQuotesService);
-    jest.clearAllMocks();
   });
 
   it('should define quotes controller', () => {
-    expect(controller).toBeDefined();
+    expect(controller).toBeInstanceOf(QuotesController);
   });
 
   describe('getQuotes', () => {
