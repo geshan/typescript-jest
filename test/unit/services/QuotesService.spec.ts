@@ -7,7 +7,7 @@ describe('QuotesService', () => {
   });
 
   it('should define quotes service', () => {
-    expect(service).toBeDefined();
+    expect(service).toBeInstanceOf(QuotesService);
   });
 
   describe('getQuotes', () => {
@@ -19,6 +19,12 @@ describe('QuotesService', () => {
     it('should get mock fixed quotes for page > 1', () => {
       const quotes = service.getQuotes(2);
       expect(quotes).toHaveLength(7);
+    });
+
+    it('should throw error for page number less than 0', () => {
+      expect(() => {
+        service.getQuotes(-1);
+      }).toThrow('Page number should be 1 or more');
     });
   });
 });
