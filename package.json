@@ -8,7 +8,6 @@
     "start": "NODE_ENV=production node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "test": "jest",
-    "test:pat": "yarn test --runInBand --verbose --t",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
   },
